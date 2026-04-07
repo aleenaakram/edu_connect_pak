@@ -8,7 +8,8 @@
     "start": "node index.js",
     "test": "mocha tests/**/*.test.js --timeout 10000",
     "test:unit": "mocha tests/unit/*.test.js",
-    "test:integration": "mocha tests/integration/*.test.js --timeout 10000"
+    "test:integration": "mocha tests/integration/*.test.js --timeout 10000",
+    "test:report": "mocha tests/**/*.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=test-results.xml"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,7 @@
   "devDependencies": {
     "chai": "^6.2.2",
     "mocha": "^11.7.5",
-    "supertest": "^7.2.2"
+    "supertest": "^7.2.2",
+    "mocha-junit-reporter": "^2.2.0"
   }
-  
 }
