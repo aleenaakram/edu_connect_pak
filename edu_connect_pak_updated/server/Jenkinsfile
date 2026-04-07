@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                dir('server') {
+                    bat 'npm install'
+                }
+            }
+        }
+        
+        stage('Run Unit Tests') {
+            steps {
+                dir('server') {
+                    bat 'npm run test:unit'
+                }
+            }
+        }
+        
+        stage('Run Integration Tests') {
+            steps {
+                dir('server') {
+                    bat 'npm run test:integration'
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'All tests passed!'
+        }
+        failure {
+            echo ' Some tests failed!'
+        }
+    }
+}
