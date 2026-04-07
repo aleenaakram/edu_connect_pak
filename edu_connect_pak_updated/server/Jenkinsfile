@@ -1,8 +1,5 @@
 pipeline {
     agent any
-     tools {
-        nodejs 'NodeJS-18'
-    }
     
     stages {
         stage('Install Dependencies') {
@@ -15,7 +12,7 @@ pipeline {
         
         stage('Run Unit Tests') {
             steps {
-                dir('server') {
+                dir('edu_connect_pak_updated/server') {
                     bat 'npm run test:unit'
                 }
             }
@@ -23,7 +20,7 @@ pipeline {
         
         stage('Run Integration Tests') {
             steps {
-                dir('server') {
+                dir('edu_connect_pak_updated/server') {
                     bat 'npm run test:integration'
                 }
             }
@@ -32,10 +29,10 @@ pipeline {
     
     post {
         success {
-            echo 'All tests passed!'
+            echo '✅ All tests passed!'
         }
         failure {
-            echo ' Some tests failed!'
+            echo '❌ Some tests failed!'
         }
     }
 }
