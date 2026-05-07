@@ -39,7 +39,7 @@ describe(' Password Validation Tests', () => {
 });
 
 describe(' Name Validation Tests', () => {
-  it(' Name >= 3 chars should pass', () => {
+  it(' Name >= 3  all chars should pass', () => {
     const name = 'Ali';
     expect(name.length).to.be.at.least(3);
   });
